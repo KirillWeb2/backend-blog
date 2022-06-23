@@ -1,9 +1,9 @@
-const { Schema, model, Types } = require('mongoose')
+import mongoose from "mongoose"
 
-const news = new Schema({
+const news = new mongoose.Schema({
     author: {
         required: true,
-        type: Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: "users"
     },
     text: String,
@@ -16,8 +16,8 @@ const news = new Schema({
         type: Number,
         default: 0,
     },
-}, { 
-    timestamps: true 
+}, {
+    timestamps: true
 })
 
-module.exports = model('news', news)
+export default model('news', news)
