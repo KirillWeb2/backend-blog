@@ -1,15 +1,16 @@
 import mongoose from "mongoose"
 
-const news = new mongoose.Schema({
+const NewsSchema = new mongoose.Schema({
     author: {
         required: true,
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "users"
     },
-    text: String,
-    img: String,
+    title: { type: String, required: true },
+    text: { type: String, required: true },
+    img: { type: String, required: true },
     tags: {
-        type: [String],
+        type: Array,
         default: []
     },
     viewsCount: {
@@ -20,4 +21,4 @@ const news = new mongoose.Schema({
     timestamps: true
 })
 
-export default model('news', news)
+export default mongoose.model('news', NewsSchema)

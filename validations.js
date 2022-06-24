@@ -11,3 +11,9 @@ export const validationRegister = [
     body('email', 'Неверный email или пароль').isEmail(),
     body('avatar', 'Аватар не загружен').optional().isURL()
 ]
+
+export const validationNewsCreate = [
+    body('title', 'Минимальная длина заголовка 3, максимальная 100').isString().isLength({ min: 3, max: 100 }),
+    body('text', 'Минимальная длина текста 3, максимальная 3000').isLength({ min: 3, max: 3000 }),
+    body('img', 'Картинка не является строкой').isString()
+]

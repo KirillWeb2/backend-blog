@@ -6,7 +6,7 @@ import Routes from './routes/index.js'
 
 const app = express()
 
-const port = process.env.PORT || 4444
+const port = process.env.PORT || config.port
 
 app.use(cors())
 app.use(express.json())
@@ -19,8 +19,9 @@ app.use('/api/file', Routes.File)
 async function start() {
     try {
         app.listen(port, () => console.log(`Server started ${port} port`))
-
+       
         await mongoose.connect(config.dbURL, () => console.log('MongoDB connected'))
+        
     } catch (err) {
         console.log(err)
     }
