@@ -2,7 +2,7 @@
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 
 <h3 align="center">Это MERN blog</h3>
-=======
+
 <h3 align="center">Это MERN blog / backend часть</h3>
 
 <h3>Запуск сервера</h3>
