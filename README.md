@@ -8,7 +8,7 @@
 <h3>Запуск сервера</h3>
 <ul>
   <li>npm install</li>
-  <li>npm npm dev</li>
+  <li>npm run dev</li>
 </ul>
 
 <hr>
