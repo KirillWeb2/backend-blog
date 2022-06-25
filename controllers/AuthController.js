@@ -7,7 +7,7 @@ import bcrypt from 'bcrypt'
 export const register = async (req, res) => {
     try {
         const { email, fullName, password } = req.body
-    
+
         const isExists = await User.findOne({ email })
 
         if (isExists) {
@@ -68,6 +68,21 @@ export const login = async (req, res) => {
         )
 
         return res.json({ token, user })
+    } catch (error) {
+        console.log(error)
+        res.status(404).json(error)
+    }
+}
+
+export const auth = async (req, res) => {
+    try {
+        const { token } = req.headers
+
+        const { _id } = jwt.decode(token, config.secretKey)
+
+        const user = await User.findOne({ _id })
+
+        return res.json({ user })
     } catch (error) {
         console.log(error)
         res.status(404).json(error)
