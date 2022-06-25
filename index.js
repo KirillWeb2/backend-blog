@@ -14,7 +14,7 @@ app.use(express.json())
 app.use('/uploads', express.static('./uploads'))
 app.use('/api/auth', Routes.Auth)
 app.use('/api/news', Routes.News)
-app.use('/api/file', Routes.File)
+app.use('/api/file/', Routes.File)
 
 async function start() {
     try {

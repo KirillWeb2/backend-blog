@@ -3,8 +3,8 @@ import { config } from '../config/config.js'
 
 export const tokenProtection = async (req, res, next) => {
     try {
-        const token = req.headers.token
-
+        const token = req.headers.authorization
+        
         if (!token) {
             return res.status(400).json({ msg: "Отказано в доступе" })
         }

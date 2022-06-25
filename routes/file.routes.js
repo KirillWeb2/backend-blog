@@ -5,7 +5,7 @@ import upload from '../middleware/file.js'
 
 const router = Router()
 
-router.post('/', tokenProtection, upload.array('file'), (req, res) => FileController.file(req, res))
+router.post('/:name', tokenProtection, upload.array('file'), (req, res) => FileController.file(req, res))
 
 
 export default router

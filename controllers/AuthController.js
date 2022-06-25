@@ -11,7 +11,7 @@ export const register = async (req, res) => {
         const isExists = await User.findOne({ email })
 
         if (isExists) {
-            return error(res, 300, { msg: "Email занят" })
+            return res.status(300).json({ msg: "Email занят" })
         }
 
         const hashPassword = await bcrypt.hashSync(password, 12)
@@ -76,9 +76,9 @@ export const login = async (req, res) => {
 
 export const auth = async (req, res) => {
     try {
-        const { token } = req.headers
+        const { authorization } = req.headers
 
-        const { _id } = jwt.decode(token, config.secretKey)
+        const { _id } = jwt.decode(authorization, config.secretKey)
 
         const user = await User.findOne({ _id })
 
