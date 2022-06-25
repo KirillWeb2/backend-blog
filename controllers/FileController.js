@@ -7,7 +7,7 @@ export const file = async (req, res) => {
             return res.status(300).json({ msg: "Не правильный формат изображения" })
         }
 
-        res.status(200).json({ msg: "Файл сохранён" })
+        res.status(200).json({ msg: "Файл сохранён", url: filename.originalname })
     } catch (error) {
         console.log(error)
         res.status(404).json(error)
