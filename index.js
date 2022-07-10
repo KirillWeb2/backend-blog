@@ -1,8 +1,8 @@
 import express from "express"
 import cors from "cors"
 import mongoose from "mongoose"
-import { config } from "./config/config.js"
 import Routes from './routes/index.js'
+import { config } from "./config/config.js"
 
 const app = express()
 
@@ -13,8 +13,9 @@ app.use(express.json())
 
 app.use('/uploads', express.static('./uploads'))
 app.use('/api/auth', Routes.Auth)
-app.use('/api/news', Routes.News)
+app.use('/api/post', Routes.Post)
 app.use('/api/file/', Routes.File)
+app.use('/api/user/', Routes.User)
 
 async function start() {
     try {

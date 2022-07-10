@@ -82,7 +82,7 @@ export const auth = async (req, res) => {
 
         const user = await User.findOne({ _id })
 
-        return res.json({ user })
+        return res.json(user)
     } catch (error) {
         console.log(error)
         res.status(404).json(error)

@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const NewsSchema = new mongoose.Schema({
+const PostSchema = new mongoose.Schema({
     author: {
         required: true,
         type: mongoose.Schema.Types.ObjectId,
@@ -21,4 +21,4 @@ const NewsSchema = new mongoose.Schema({
     timestamps: true
 })
 
-export default mongoose.model('news', NewsSchema)
+export default mongoose.model('posts', PostSchema)

@@ -15,7 +15,9 @@ export const file = async (req, res) => {
             const start = name.replace(end, '')
           
             fs.unlink(`uploads/${start}${end}`, err => {
-                console.log(err)
+                if(err){
+                    console.log(err)
+                }
             })
         }
 
